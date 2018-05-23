@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>.item-div {&#13;
+  margin-top:20px;&#13;
+}&#13;
+.shadow{&#13;
+  box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.11);&#13;
+    background: #fff;&#13;
+  }&#13;
+&#13;
+  body {&#13;
+      background: #eeeded;&#13;
+  }&#13;
+  *{&#13;
+    font-family: "Source Sans Pro", 'Open Sans', sans-serif;&#13;
+  }&#13;
+.panel-heading {&#13;
+  padding:10px !important; &#13;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>code_review</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>karunakar.medamoni</sys_created_by>
+        <sys_created_on>2018-05-22 14:23:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>13179520dbde1340946efdb61d96197d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>code_review</sys_name>
+        <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
+        <sys_update_name>sp_page_13179520dbde1340946efdb61d96197d</sys_update_name>
+        <sys_updated_by>karunakar.medamoni</sys_updated_by>
+        <sys_updated_on>2018-05-22 16:11:23</sys_updated_on>
+        <title>Code Review</title>
+    </sp_page>
+</record_update>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">632129e8dbde1340946efdb61d9619a1</sp_column>
+        <sp_widget display_value="Code Review Search">f65cd5a4dbde1340946efdb61d9619b8</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>karunakar.medamoni</sys_created_by>
+        <sys_created_on>2018-05-22 15:08:04</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>473129e8dbde1340946efdb61d9619a7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
+        <sys_update_name>sp_instance_473129e8dbde1340946efdb61d9619a7</sys_update_name>
+        <sys_updated_by>karunakar.medamoni</sys_updated_by>
+        <sys_updated_on>2018-05-22 15:08:04</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+</record_update>

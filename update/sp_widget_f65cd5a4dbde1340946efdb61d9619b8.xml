@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function searchController($scope,$http,$log) {
+  /* widget controller */
+  var c = this;
+	c.loading = false;
+	c.searchUpdateSet = function() {
+		c.loading = true;
+		c.names = (c.updateSetName||'').split(",");
+		c.stop();
+	}
+	
+	c.stop = function(){
+		setTimeout(function(){
+			c.loading = false;
+			$scope.$digest();
+		},1000);
+	}
+	
+}
+
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.search-div {
+  position:relative;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  height:100px;
+  width: 100%;
+}
+.input-group{
+    top: 30%;
+    width: 60%;
+    margin: auto;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+
+.km-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+  }
+  .km-modal {
+    box-shadow:0 3px 11px 0 #9E9E9E;
+    height: 100px;
+    padding: 20px;
+    background: #FFF;
+    border-radius:10px;
+    width: 200px;
+  
+  }
+  .km-loader {
+      border: 10px solid #efefef; /* Light grey */
+      border-left: 10px  #feb645; /* Blue  */
+      border-right: 10px  #1f3b08; /* Blue */
+      border-top: 10px solid #3498db;
+      border-bottom: 10px solid #ff920a;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-left:44%;
+  }
+  
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+  .km-vertical {
+    left:0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    margin:auto;
+    position: absolute;
+  }</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>code_review_search</id>
+        <internal>false</internal>
+        <link/>
+        <name>Code Review Search</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>karunakar.medamoni</sys_created_by>
+        <sys_created_on>2018-05-22 14:46:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f65cd5a4dbde1340946efdb61d9619b8</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>Code Review Search</sys_name>
+        <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
+        <sys_update_name>sp_widget_f65cd5a4dbde1340946efdb61d9619b8</sys_update_name>
+        <sys_updated_by>karunakar.medamoni</sys_updated_by>
+        <sys_updated_on>2018-05-22 15:21:16</sys_updated_on>
+        <template><![CDATA[<div class="item-div search-div panel shadow">
+ <div class="input-group">
+    <input ng-model="c.updateSetName" id="search" type="text" class="form-control" name="search" placeholder="UpdateSet Names ex: Karunakar_STRY1016241_LeadRouting, Karunakar_STRY1174209_LeadRouting_playRule">
+   <span class="input-group-addon btn-primary" ng-click="c.searchUpdateSet()"> Search </span>
+  </div>
+  {{ c.names}}
+</div>
+
+
+
+<div ng-if="c.loading">
+  <div class="km-overlay">
+  <div class="km-modal km-vertical" id="modal">
+    <div class="km-modal-content">
+      <div class="km-loader km-vertical"></div>
+    </div>
+  </div>
+</div>
+</div>
+]]></template>
+    </sp_widget>
+</record_update>
