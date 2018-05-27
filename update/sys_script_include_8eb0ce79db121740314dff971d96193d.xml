@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_codereview.CodeReviewUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>CodeReviewUtil</name>
+        <script><![CDATA[var CodeReviewUtil = Class.create();
+CodeReviewUtil.prototype = {
+    initialize: function () {
+		this.typeObject = {};
+		this.types = [];
+    },
+    validateStoryTask: function (story) {
+        var taskGr = new GlideRecord('rm_scrum_task');
+        taskGr.addQuery('story', story);
+        taskGr.addQuery('assigned_to', gs.getUserID());
+        taskGr.addEncodedQuery('u_sub_type=Development^ORu_sub_type=Peer Review');
+        taskGr.query();
+        var taskObject = {};
+        while (taskGr.next()) {
+            taskObject.story = taskGr.getValue('story');
+            taskObject.storyNumber = taskGr.getDisplayValue('story');
+            taskObject.user = taskGr.getValue('assigned_to');
+            taskObject.userName = taskGr.getDisplayValue('assigned_to');
+            taskObject.type = taskGr.getValue('u_sub_type');
+        }
+        return taskObject;
+    },
+    storeTypeObject : function (object) {
+        var list = this.typeObject[object.type] || [];
+        list.push(object);
+        this.typeObject[object.type] = list;
+        if (this.types.indexOf(object.type) < 0)
+            this.types.push(object.type);
+    },
+    getUpdateSetList: function (updateSetName) {
+		var updateSetNames = updateSetName.split(",");
+        var updateSetGr = new GlideRecord('sys_update_xml');
+        updateSetGr.addQuery('update_set.name', 'IN', updateSetNames);
+		updateSetGr.addEncodedQuery('action!=DELETE^ORaction=NULL');
+        updateSetGr.query();
+        while (updateSetGr.next()) {
+            var typeObj = {};
+            typeObj.name = updateSetGr.getValue('name');
+            typeObj.target_name = updateSetGr.getValue('target_name');
+            typeObj.type = updateSetGr.getValue('type');
+            typeObj.table = updateSetGr.getValue('table');
+            this.storeTypeObject(typeObj);
+        }
+		return {'types':this.types,'typeObject':this.typeObject};	
+    },
+    type: 'CodeReviewUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>karunakar.medamoni</sys_created_by>
+        <sys_created_on>2018-05-26 14:57:16</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8eb0ce79db121740314dff971d96193d</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>CodeReviewUtil</sys_name>
+        <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
+        <sys_update_name>sys_script_include_8eb0ce79db121740314dff971d96193d</sys_update_name>
+        <sys_updated_by>karunakar.medamoni</sys_updated_by>
+        <sys_updated_on>2018-05-27 05:23:28</sys_updated_on>
+    </sys_script_include>
+</record_update>
