@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Review CheckList" max_length="40" name="x_snc_codereview_review_checklist" type="collection">
+        <element label="CheckList" max_length="8000" name="checklist" read_only="true" type="script_plain"/>
+        <element label="Comments" max_length="8000" name="comment" read_only="true" type="script_plain"/>
+        <element label="Developer" max_length="32" name="developer" read_only="true" reference="sys_user" type="reference"/>
+        <element label="Peer Review" max_length="32" name="peer_review" read_only="true" reference="sys_user" type="reference"/>
+        <element label="Story" max_length="32" name="story" read_only="true" reference="rm_story" type="reference"/>
+        <element label="Update Entries" max_length="8000" name="update_entries" read_only="true" type="script_plain"/>
+        <index name="index">
+            <element name="peer_review"/>
+        </index>
+        <index name="index2">
+            <element name="developer"/>
+        </index>
+        <index name="index3">
+            <element name="story"/>
+        </index>
+    </element>
+</database>

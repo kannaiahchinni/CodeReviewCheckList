@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Review CheckList">1a6540badb9293c0b1a6f5361d961953</application>
+        <assessment/>
+        <content_page/>
+        <device_type/>
+        <filter/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Review CheckLists</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_snc_codereview_review_checklist</name>
+        <order/>
+        <override_menu_roles>false</override_menu_roles>
+        <populate_view/>
+        <query/>
+        <report/>
+        <roles>itil</roles>
+        <survey/>
+        <survey_overwrite>true</survey_overwrite>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>karunakar.medamoni</sys_created_by>
+        <sys_created_on>2018-05-29 08:13:12</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>da654cbadb1693c0b1a6f5361d96196a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Review CheckLists</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
+        <sys_update_name>sys_app_module_da654cbadb1693c0b1a6f5361d96196a</sys_update_name>
+        <sys_updated_by>karunakar.medamoni</sys_updated_by>
+        <sys_updated_on>2018-05-29 08:13:12</sys_updated_on>
+        <timeline_page/>
+        <title>Review CheckLists</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>
