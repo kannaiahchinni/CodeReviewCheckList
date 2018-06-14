@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="INSERT_OR_UPDATE">
+        <sp_dependency display_value="PDFJS">d8a0d930db665f40314dff971d961943</sp_dependency>
+        <sp_widget display_value="CodeReviewCheckList">d066ebc0db9adf00946efdb61d96199c</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>karunakar.medamoni</sys_created_by>
+        <sys_created_on>2018-06-04 18:54:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>63b1153cdbe65f40314dff971d961933</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PDFJS.CodeReviewCheckList</sys_name>
+        <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_63b1153cdbe65f40314dff971d961933</sys_update_name>
+        <sys_updated_by>karunakar.medamoni</sys_updated_by>
+        <sys_updated_on>2018-06-04 18:54:33</sys_updated_on>
+    </m2m_sp_widget_dependency>
+</record_update>

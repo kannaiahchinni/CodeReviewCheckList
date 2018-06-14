@@ -2,37 +2,37 @@
 <record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function($scope,$log,$http) {
+        <client_script><![CDATA[function checkListController($scope,$log,$http) {
   /* widget controller */
   var c = this;
-	console.log(c.data.taskObject)
+	console.log(c.data.taskObject);
 	console.log(c.data.entries);
 	c.basicAuth = 'Basic a2FydW5ha2FyLm1lZGFtb25pOlNhdHlhbW1hQDEzMjk=';
-	
-	c.types = 'Event Registration,Script Action,Table,Dictionary,Field Label,Number,System Property,Script Include,Access Control,Access Roles,List Layout,UI Page,UI Policy,UI Policy Action,Form Layout,UI Action,Group,Role,Scripted REST API,Scripted REST Resource,Scripted REST Query Parameter';
-	c.typesList = {"Event Registration":[{"name":"sysevent_register_7717ee7adb0a97007d07575e5e961996","target_name":"lead.bulk.assignment","type":"Event Registration","table":null},{"name":"sysevent_register_9b5dbe7edb0a97007d07575e5e9619dd","target_name":"lead.bulk.assignment.run","type":"Event Registration","table":null}],"Script Action":[{"name":"sysevent_script_action_0e47aef6db8697007d07575e5e961963","target_name":"Lead Bulk Assignmnet","type":"Script Action","table":"lead.bulk.assignment"},{"name":"sysevent_script_action_430ebe76db4a97007d07575e5e961909","target_name":"Lead Bulk Assignmnet Run","type":"Script Action","table":"lead.bulk.assignment.run"}],"Table":[{"name":"sys_db_object_6e35aac5db7fb240142ef4b5ae961924","target_name":"Lead Automation Audit","type":"Table","table":"u_lead_automation_audit"}],"Dictionary":[{"name":"sys_dictionary_u_lead_automation_audit_u_bulkbatch","target_name":"Lead Automation Audit.BulkBatch","type":"Dictionary","table":"u_lead_automation_audit"},{"name":"sys_dictionary_u_lead_automation_audit_u_order","target_name":"Lead Automation Audit.Order","type":"Dictionary","table":"u_lead_automation_audit"},{"name":"sys_dictionary_u_lead_automation_audit_u_status","target_name":"Lead Automation Audit.Status","type":"Dictionary","table":"u_lead_automation_audit"},{"name":"sys_dictionary_u_lead_automation_audit_u_type","target_name":"Lead Automation Audit.Type","type":"Dictionary","table":"u_lead_automation_audit"}],"Field Label":[{"name":"sys_documentation_u_lead_automation_audit_u_bulkbatch_en","target_name":"Lead Automation Audit.BulkBatch","type":"Field Label","table":"u_lead_automation_audit"},{"name":"sys_documentation_u_lead_automation_audit_u_order_en","target_name":"Lead Automation Audit.Order","type":"Field Label","table":"u_lead_automation_audit"},{"name":"sys_documentation_u_lead_automation_audit_u_status_en","target_name":"Lead Automation Audit.Status","type":"Field Label","table":"u_lead_automation_audit"},{"name":"sys_documentation_u_lead_automation_audit_u_type_en","target_name":"Lead Automation Audit.Type","type":"Field Label","table":"u_lead_automation_audit"}],"Number":[{"name":"sys_number_3a69eecbdb425b0078b9d34b5e9619e5","target_name":null,"type":"Number","table":null}],"System Property":[{"name":"sys_properties_0bf489c7db0e1b0078b9d34b5e961922","target_name":"mkt.bulklead.reassignment.delay","type":"System Property","table":null},{"name":"sys_properties_3739f980db9a1f007d07575e5e961968","target_name":"mkt.bulklead.reassignment.ui.threshold","type":"System Property","table":null},{"name":"sys_properties_86dbcbdcdb8e17407d07575e5e9619c0","target_name":"mkt.bulklead.reassignment.authorization","type":"System Property","table":null},{"name":"sys_properties_db438c49db4ad7407d07575e5e9619a3","target_name":"mkt.bulklead.reassignment.threshold","type":"System Property","table":null},{"name":"sys_properties_f04c09b4db3f3240142ef4b5ae961932","target_name":"adr.roubdrobin.enable.audit","type":"System Property","table":null},{"name":"sys_properties_86dbcbdcdb8e17407d07575e5e9619c0","target_name":"bulklead.reassignment.authorization","type":"System Property","table":null},{"name":"sys_properties_db438c49db4ad7407d07575e5e9619a3","target_name":"mkt.lead.reassignment.threshold","type":"System Property","table":null},{"name":"sys_properties_e276d481db8ed7407d07575e5e961920","target_name":"mkt.leadrouting.exclude.status","type":"System Property","table":null}],"Script Include":[{"name":"sys_script_include_30a1049edb4ed3007d07575e5e961953","target_name":"MKTLeadCache","type":"Script Include","table":null},{"name":"sys_script_include_4c2fd400db465f40aefbeeb5ca961942","target_name":"MKTLeadAssignment","type":"Script Include","table":null},{"name":"sys_script_include_dbbfa884db4a5f40aefbeeb5ca96191e","target_name":"LeadRestUtil","type":"Script Include","table":null},{"name":"sys_script_include_30a1049edb4ed3007d07575e5e961953","target_name":"MKTLeadCache","type":"Script Include","table":null},{"name":"sys_script_include_4c2fd400db465f40aefbeeb5ca961942","target_name":"MKTLeadAssignment","type":"Script Include","table":null},{"name":"sys_script_include_dbbfa884db4a5f40aefbeeb5ca96191e","target_name":"LeadRestUtil","type":"Script Include","table":null},{"name":"sys_script_include_feea8174db3f3240142ef4b5ae961930","target_name":"LeadAutomationUtil","type":"Script Include","table":null}],"Access Control":[{"name":"sys_security_acl_1726fa4bdb86d700593bf9041d961967","target_name":"u_lead_automation_audit.u_bulkbatch","type":"Access Control","table":"u_lead_automation_audit.u_bulkbatch"},{"name":"sys_security_acl_26cff083db0e1b0078b9d34b5e96199d","target_name":"u_lead_automation_audit.u_lead","type":"Access Control","table":"u_lead_automation_audit.u_lead"},{"name":"sys_security_acl_5b30410bdbca1b0078b9d34b5e9619ea","target_name":"u_lead_automation_audit.u_type","type":"Access Control","table":"u_lead_automation_audit.u_type"},{"name":"sys_security_acl_b8072249db7fb240142ef4b5ae96198c","target_name":"u_lead_automation_audit","type":"Access Control","table":"u_lead_automation_audit"},{"name":"sys_security_acl_de104983db0e1b0078b9d34b5e961975","target_name":"u_lead_automation_audit.u_status","type":"Access Control","table":"u_lead_automation_audit.u_status"}],"Access Roles":[{"name":"sys_security_acl_role_5b30410bdbca1b0078b9d34b5e9619eb","target_name":"u_lead_automation_audit.u_type.reassign_leads","type":"Access Roles","table":"u_lead_automation_audit.u_type"},{"name":"sys_security_acl_role_a536fa4bdb86d700593bf9041d9619f8","target_name":".reassign_leads","type":"Access Roles","table":"1726fa4bdb86d700593bf9041d961967"},{"name":"sys_security_acl_role_c4df740fdb8a1b0078b9d34b5e9619f2","target_name":".reassign_leads","type":"Access Roles","table":"26cff083db0e1b0078b9d34b5e96199d"},{"name":"sys_security_acl_role_d74424cbdb8a1b0078b9d34b5e961911","target_name":"u_lead_automation_audit.reassign_leads","type":"Access Roles","table":"u_lead_automation_audit"},{"name":"sys_security_acl_role_de104983db0e1b0078b9d34b5e961976","target_name":"u_lead_automation_audit.u_status.reassign_leads","type":"Access Roles","table":"u_lead_automation_audit.u_status"}],"List Layout":[{"name":"sys_ui_list_u_lead_automation_audit_null","target_name":"Lead Automation Audit","type":"List Layout","table":"u_lead_automation_audit"}],"UI Page":[{"name":"sys_ui_page_48813b02db3afa4004cef6c5ae9619cb","target_name":"GDCLRelated","type":"UI Page","table":null},{"name":"sys_ui_page_b55e4808db425f40aefbeeb5ca9619d0","target_name":"lead_assignment","type":"UI Page","table":null},{"name":"sys_ui_page_b55e4808db425f40aefbeeb5ca9619d0","target_name":"lead_assignment","type":"UI Page","table":null}],"UI Policy":[{"name":"sys_ui_policy_8fd049c3db0e1b0078b9d34b5e9619e8","target_name":null,"type":"UI Policy","table":"u_lead_automation_audit"}],"UI Policy Action":[{"name":"sys_ui_policy_action_2f018dc3db0e1b0078b9d34b5e9619d7","target_name":"u_area","type":"UI Policy Action","table":"u_lead_automation_audit"},{"name":"sys_ui_policy_action_89da7e0bdb4ad7007d07575e5e9619db","target_name":"u_comment","type":"UI Policy Action","table":"u_lead_automation_audit"},{"name":"sys_ui_policy_action_901bb24bdb4ad7007d07575e5e96191b","target_name":"u_order","type":"UI Policy Action","table":"u_lead_automation_audit"},{"name":"sys_ui_policy_action_db214107db0e1b0078b9d34b5e961942","target_name":"u_play","type":"UI Policy Action","table":"u_lead_automation_audit"},{"name":"sys_ui_policy_action_f9f00dc3db0e1b0078b9d34b5e96192e","target_name":"u_adr","type":"UI Policy Action","table":"u_lead_automation_audit"}],"Form Layout":[{"name":"sys_ui_section_85534c9adb4e1700cb15f7731d961999","target_name":"Lead Automation Audit","type":"Form Layout","table":"u_lead_automation_audit"},{"name":"sys_ui_section_85534c9adb4e1700cb15f7731d961999","target_name":"Lead Automation Audit","type":"Form Layout","table":"u_lead_automation_audit"}],"UI Action":[{"name":"sys_ui_action_d3dd8884db425f40aefbeeb5ca9619c3","target_name":"Rerun Bulk Lead Assignment","type":"UI Action","table":"sales_lead"}],"Group":[{"name":"sys_user_group_94c1fe75db0a93007d07575e5e9619d9","target_name":"Bulk Lead Assignment","type":"Group","table":null}],"Role":[{"name":"sys_user_role_b061ba75db0a93007d07575e5e96195a","target_name":"lead_bulk_assign","type":"Role","table":null},{"name":"sys_user_role_f7c27ef5db0a93007d07575e5e9619ba","target_name":"reassign_leads","type":"Role","table":null}],"Scripted REST API":[{"name":"sys_ws_definition_9c09b4c0db8a5f40aefbeeb5ca961979","target_name":"Leadassignment","type":"Scripted REST API","table":null}],"Scripted REST Resource":[{"name":"sys_ws_operation_d559bcc0db8a5f40aefbeeb5ca9619da","target_name":"post","type":"Scripted REST Resource","table":null}],"Scripted REST Query Parameter":[{"name":"sys_ws_query_parameter_54eab444db8a5f40aefbeeb5ca961907","target_name":"leadSysId","type":"Scripted REST Query Parameter","table":null}]};
-	console.log(c.types.split(','));
-	c.loading = false;
-	
-	c.searchUpdateSet = function() {
-/*		c.loading = true;
-		c.names = (c.updateSetName||'').split(",");
-		c.stop();*/
-		c.getEntries();
+	if(c.data.entries.changes){
+		c.types = Object.keys(c.data.entries.changes);
+		c.typesList = c.data.entries.changes;
+	}else{
+		c.types= [];
+		c.typesList = {};
 	}
+	
+	c.loading = false;
+	c.searchUpdateSet = function() {
+		c.getEntries();
+	};
 	
 	c.stop = function(){
 		setTimeout(function(){
 			c.loading = false;
 			$scope.$digest();
 		},1000);
-	}
+	};
 	
 	c.showPanel = function(type) {
 		if(c.typesList[type]){
 			c.typesList[type].showPanel = !c.typesList[type].showPanel;
 		}	
-	}
+	};
 	c.getEntries = function() {
 		
 		if(c.updateSetName == '')
@@ -51,27 +51,46 @@
 			}
 		};
 		$http(req).then(function success(response){
-			c.loading = false
+			c.loading = false;
 			console.log(response);
 			c.typesList = response.data.result.typeObject;
 			c.types = response.data.result.types;
 		},function error(response){
-			c.loading = false
+			c.loading = false;
 			console.log(response);
-		})
-	}
+		});
+	};
 	
 	c.saveChanges = function(){
 		var input = {};
+		c.loading = true;
 		console.log(c.typesList);
 		input.changes = JSON.stringify(c.typesList);
 		input.checklist = JSON.stringify(c.typesList);
 		input.comment = 'Test Karunakar ';
+		input.sys_id = c.data.entries.sys_id;
 		console.log(input);
 		c.server.get(input).then(function(response){
-			console.log(response);
-		})
-	}
+			c.data.entries.sys_id = response.data.sys_id;
+			c.loading = false;
+		});
+	};
+	c.generate = function(){
+		var doc = new jsPDF();
+		var specialElementHandlers = {
+		'#editor': function (element, renderer) {
+			return true;
+			}
+		};
+			var content = angular.element(document.querySelector("#content"));
+		
+			doc.fromHTML(content.html(), 15, 15, {
+        'width': 170,
+            'elementHandlers': specialElementHandlers
+    });
+		doc.save('sample-file.pdf');
+		console.debug(content.html());
+	};
 	
 	
 }]]></client_script>
@@ -189,8 +208,8 @@
 	
 	
 	var getEntries = function(){
-		var data = codeReviewUtil.getEntries();	
-	}
+		return codeReviewUtil.getEntries(story);	
+	};
 	
 	if(!input && story){
 		 data.taskObject = codeReviewUtil.validateStoryTask(story);
@@ -199,13 +218,8 @@
 		 }
 	}else if(input){
 		input.story = story;
-		codeReviewUtil.insertEntries(input);
-/*		var codeGr = new GlideRecord('x_snc_codereview_review_checklist');
-		codeGr.comment = input.comment;
-		codeGr.checklist = input.checklist;
-		codeGr.update_entries = input.changes;
-		codeGr.story = input.story;
-		codeGr.update();*/
+		data.sys_id = codeReviewUtil.insertEntries(input);
+		return data.sys_id;
 	}
 	
 })();]]></script>
@@ -215,7 +229,7 @@
         <sys_created_on>2018-05-21 11:32:49</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d066ebc0db9adf00946efdb61d96199c</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>92</sys_mod_count>
         <sys_name>CodeReviewCheckList</sys_name>
         <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
         <sys_policy/>
@@ -223,10 +237,10 @@
         <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
         <sys_update_name>sp_widget_d066ebc0db9adf00946efdb61d96199c</sys_update_name>
         <sys_updated_by>karunakar.medamoni</sys_updated_by>
-        <sys_updated_on>2018-05-31 05:29:30</sys_updated_on>
+        <sys_updated_on>2018-06-05 18:16:25</sys_updated_on>
         <template><![CDATA[<div ng-show="c.data.taskObject.user">
 
-  <div class="item-div search-div panel shadow" ng-show="c.data.taskObject.type != 'Peer Review'">
+  <div class="item-div search-div panel shadow" ng-show="c.data.taskObject.type != 2">
     <div class="input-group">
       <input ng-model="c.updateSetName" id="search" type="text" class="form-control" name="search" placeholder="UpdateSet Names ex: Karunakar_STRY1016241_LeadRouting, Karunakar_STRY1174209_LeadRouting_playRule">
       <span class="input-group-addon btn-primary" ng-click="c.searchUpdateSet()"> Search </span>
@@ -236,7 +250,6 @@
 
 
   <div class="item-div panel shadow">
-
 
     <ul class="nav nav-tabs">
       <li class="active">
@@ -250,13 +263,14 @@
       </li>
     </ul>
 
-    <div class="tab-content">
+    <div class="row tab-content">
       <div id="changes" class="tab-pane fade in active">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="col-md-12" class="item-div">
+              <div class="col-md-12 item-div">
                   <h3>Changes</h3>
                 <div class="text-right col-md-12">
                   <button class="btn btn-primary" ng-click="c.saveChanges()"> Save </button>
+                  <button class="btn btn-primary" ng-click="c.generate()"> Generate TDD </button>
                 </div>
                 <div ng-repeat="type in c.types" class="shadow panel ">
                   <div class="panel-heading " role="tab" id="headingOne" ng-click="c.showPanel(type)">
@@ -290,31 +304,33 @@
                 </div>
               </div>
             </div>
-
-        
       </div>
       <div id="checkList" class="tab-pane fade">
-        <h3>Review Check List</h3>
-        <p>Some content in menu 1.</p>
+         <div class="col-md-12">
+		        <h3>Review Check List</h3>
+    		    <p>Some content in menu 1.</p>
+        </div>
       </div>
       <div id="comments" class="tab-pane fade">
-        <h3>Comments</h3>
-        <p>Some content in menu 2.</p>
+        <div class="col-md-12">
+           <h3>Comments</h3>
+           <textarea ng-model="c.data.entries.comments" class="form-control" ng-if="c.data.taskObject.type == 2"></textarea>
+          <p ng-if="c.data.taskObject.type == 1" ng-bind="c.data.entries.comments"></p>
+        </div>
       </div>
     </div>
-
   </div>
-
- 
-
 </div>
 
 <div ng-hide="c.data.taskObject.user" class="panel shadow item-div">
-
   <div class="panel-body">
     No development/peer review task are assigned to you. Please revist with valid story details
   </div>
+</div>
 
+<div id="content" style="display:none">
+    <h3>Sample h3 tag</h3>
+    <p>Sample pararaph</p>
 </div>
 
 

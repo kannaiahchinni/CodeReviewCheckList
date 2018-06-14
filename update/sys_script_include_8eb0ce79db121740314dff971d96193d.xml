@@ -13,6 +13,7 @@ CodeReviewUtil.prototype = {
     initialize: function () {
 		this.typeObject = {};
 		this.types = [];
+		this.taskTypes = {"Development":1,"Peer Review":2};
     },
     validateStoryTask: function (story) {
         var taskGr = new GlideRecord('rm_scrum_task');
@@ -26,7 +27,7 @@ CodeReviewUtil.prototype = {
             taskObject.storyNumber = taskGr.getDisplayValue('story');
             taskObject.user = taskGr.getValue('assigned_to');
             taskObject.userName = taskGr.getDisplayValue('assigned_to');
-            taskObject.type = taskGr.getValue('u_sub_type');
+            taskObject.type = this.taskTypes[taskGr.getValue('u_sub_type')];
         }
         return taskObject;
     },
@@ -50,17 +51,30 @@ CodeReviewUtil.prototype = {
 			result.peer_review = reviewGr.getValue('peer_review');
 			result.update_entries = reviewGr.getValue('update_entries') ? JSON.parse(reviewGr.getValue('update_entries')) : {};
 			result.changes = reviewGr.getValue('update_entries')? JSON.parse(reviewGr.getValue('update_entries')) : {};
+			result.sys_id = reviewGr.getValue('sys_id');
 			
 		}
 		return result;
 	},
 	insertEntries : function(object) {
 		var codeGr = new GlideRecord('x_snc_codereview_review_checklist');
-		codeGr.comment = object.comment;
-		codeGr.checklist = object.checklist;
-		codeGr.update_entries = object.changes;
-		codeGr.story = object.story;
-		codeGr.update();
+		codeGr.addQuery('sys_id', object.sys_id);
+		codeGr.query();
+		if(codeGr.next()){
+			codeGr.comment = object.comment;
+			codeGr.checklist = object.checklist;
+			codeGr.update_entries = object.changes;
+			codeGr.story = object.story;
+			codeGr.update();
+		}else{
+			codeGr.comment = object.comment;
+			codeGr.checklist = object.checklist;
+			codeGr.update_entries = object.changes;
+			codeGr.story = object.story;
+			codeGr.insert();
+		}
+		
+		return codeGr.getValue('sys_id');
 	},
     getUpdateSetList: function (value) {
 		var updateSetNames = value.split(",");
@@ -85,7 +99,7 @@ CodeReviewUtil.prototype = {
         <sys_created_on>2018-05-26 14:57:16</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>8eb0ce79db121740314dff971d96193d</sys_id>
-        <sys_mod_count>9</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>CodeReviewUtil</sys_name>
         <sys_package display_value="CodeReviewCheckList" source="x_snc_codereview">25352fc0db9adf00946efdb61d961903</sys_package>
         <sys_policy/>
@@ -93,6 +107,6 @@ CodeReviewUtil.prototype = {
         <sys_scope display_value="CodeReviewCheckList">25352fc0db9adf00946efdb61d961903</sys_scope>
         <sys_update_name>sys_script_include_8eb0ce79db121740314dff971d96193d</sys_update_name>
         <sys_updated_by>karunakar.medamoni</sys_updated_by>
-        <sys_updated_on>2018-05-31 05:19:19</sys_updated_on>
+        <sys_updated_on>2018-05-31 19:01:56</sys_updated_on>
     </sys_script_include>
 </record_update>
